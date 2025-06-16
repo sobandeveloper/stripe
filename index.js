@@ -3,7 +3,7 @@ const cors = require('cors');
 const Stripe = require('stripe');
 const app = express();
 
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY); // Use env variable for key
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY); // Use env variable for Stripe secret key
 
 app.use(cors());
 app.use(express.json());
@@ -24,6 +24,7 @@ app.post('/create-checkout', async (req, res) => {
       }],
       mode: 'payment',
       customer_email: email,
+      client_reference_id: `${email}-${Date.now()}`, // Ensures a fresh session each time
       success_url: 'https://ivory-chinchilla-459851.hostingersite.com/form/?stripe=success',
       cancel_url: 'https://ivory-chinchilla-459851.hostingersite.com/form/?stripe=cancel',
     });
