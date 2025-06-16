@@ -25,8 +25,8 @@ app.post('/create-checkout', async (req, res) => {
       mode: 'payment',
       customer_email: email,
       client_reference_id: `${email}-${Date.now()}`, // Ensures a fresh session each time
-      success_url: 'https://ivory-chinchilla-459851.hostingersite.com/form/?stripe=success',
-      cancel_url: 'https://ivory-chinchilla-459851.hostingersite.com/form/?stripe=cancel',
+      success_url: 'https://ivory-chinchilla-459851.hostingersite.com/symbis-intake-form/?stripe=success',
+      cancel_url: 'https://ivory-chinchilla-459851.hostingersite.com/symbis-intake-form/?stripe=cancel',
     });
 
     res.json({ success: true, redirect_url: session.url });
