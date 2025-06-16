@@ -24,8 +24,8 @@ app.post('/create-checkout', async (req, res) => {
       }],
       mode: 'payment',
       customer_email: email,
-      success_url: 'https://yourdomain.com/thank-you',
-      cancel_url: 'https://yourdomain.com/payment-cancelled',
+      success_url: 'https://ivory-chinchilla-459851.hostingersite.com/form/?stripe=success',
+      cancel_url: 'https://ivory-chinchilla-459851.hostingersite.com/form/?stripe=cancel',
     });
 
     res.json({ success: true, redirect_url: session.url });
